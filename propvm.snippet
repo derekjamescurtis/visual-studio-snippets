@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>propvm</Title>
+			<Shortcut>propvm</Shortcut>
+			<Description>ViewModel snippet that uses an object named _entity as it's backing store.  
+                Called a method OnPropertyChanged Afterwards.</Description>
+			<Author>Derek J. Curtis</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>type</ID>
+					<ToolTip>Property type</ToolTip>
+					<Default>int</Default>
+				</Literal>
+				<Literal>
+					<ID>property</ID>
+					<ToolTip>Property name</ToolTip>
+					<Default>MyProperty</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="csharp">
+            <![CDATA[public $type$ $property$ 
+            { 
+                get { return _entity.$property$; }
+                set
+                {
+                    _entity.$property$ = value;
+                    OnPropertyChanged("$property$");
+                }                
+            }
+            ]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
